@@ -69,7 +69,7 @@ ingress:
 ## Bootstrap Network
 Bootstraping network consumes minimum of 20 min. deploying kafka charts will itself consume 10 min and after each chart theres a waitTime of 70seconds
 
-from terminal run
+make sure you are in addenda/example directory then from terminal run
 ```
 $: ./main.sh 
 ```
