@@ -8,8 +8,8 @@ echo -e "\e[34m Please Be PATIENT\e[0m"
 echo -e "\e[34m NOTE: All MSP's are transfered as secrets in namespace, In k8's secrets are the best way to share or store certificates\e[0m"
 
 
-# ./genConfigViaCA.sh
-# sleep 5
+./genConfigViaCA.sh
+sleep 5
 ./orderer.sh 1
 sleep 5
 ./org1.sh 2
