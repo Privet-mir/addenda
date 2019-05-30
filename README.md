@@ -17,7 +17,8 @@ In this task i've deployed 1 orderer using kafka consensus, 1 Org with 2 peers a
 ## Configure K8's
 I am using Nginx Ingress service for CA which exposes CA over https outside cluster using DNS, Certmanager is used to auto generate the tls certificates required, I am using Letsencrypt which issues free ssl/tls certificates and Letsencrypt root cert has been passed in fabric-ca-client-config.yaml file in the section
 
-```    tls:
+```    
+    tls:
        certfiles:
          - ./Lets_Encrypt_Authority_X3.pem```
 
