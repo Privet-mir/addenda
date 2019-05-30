@@ -20,7 +20,8 @@ I am using Nginx Ingress service for CA which exposes CA over https outside clus
 ```    
     tls:
        certfiles:
-         - ./Lets_Encrypt_Authority_X3.pem```
+         - ./Lets_Encrypt_Authority_X3.pem
+```
 
 
 To configure all of the above services simply run 
