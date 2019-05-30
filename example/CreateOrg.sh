@@ -28,7 +28,7 @@ do
 
  echo -e "\e[34m Install CouchDB chart \e[0m"
  helm install -n "$ORGNAME"-couchdb${i} ../addenda-couchdb/ --namespace $NS -f ./helm_values/cdb-peer.yaml
-#  sleep 70
+  sleep 70
  CDB_POD=$(kubectl get pods -n $NS -l "app=couchdb,release="$ORGNAME"-couchdb${i}" -o jsonpath="{.items[*].metadata.name}")
  kubectl logs -n $NS $CDB_POD | grep 'Apache CouchDB has started on'
 

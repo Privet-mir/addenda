@@ -89,7 +89,7 @@ This will generate MSP for Org2 and will add Org2 to addenda-channel
 
 Now lets Create Org2 Pod and make org2 peer1 join addenda-channel
 ```
-$:./CreateOrg.sh
+$:./CreateOrg.sh org2 org2 Org2MSP
 ```
 
 Now Org2 has sucessfully joined the network

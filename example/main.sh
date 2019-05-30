@@ -18,4 +18,4 @@ sleep 5
 sleep 5
 echo -e "\e[34m Congratulations you network has been Bootstrapped successfully\e[0m"
 
-echo -e "\e[34m Now to add Org2 to the existing network please run ./org2.sh \e[0m"
+echo -e "\e[34m Now you can add Org2 to the existing network \e[0m"
