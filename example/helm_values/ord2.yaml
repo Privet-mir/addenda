@@ -1,0 +1,52 @@
+image:
+  tag: 1.4.0
+
+persistence:
+  accessMode: ReadWriteOnce
+  size: 1Gi
+
+#ingress:
+#  enabled: true
+#  annotations: {}
+#     kubernetes.io/ingress.class: nginx
+#     nginx.ingress.kubernetes.io/ssl-redirect: "true"
+#     nginx.ingress.kubernetes.io/backend-protocol: "GRPCS"
+#     certmanager.k8s.io/cluster-issuer: "letsencrypt-staging"
+#  path: /
+#  hosts:
+#    - orderer2.edu.groupup.co.in
+#  tls: []
+#    - secretName: orderer-tls
+#      hosts:
+#        - orderer2.edu.groupup.co.in
+
+ord:
+  type: kafka
+  mspID: OrdererMSP
+#  tls:
+#    server:
+#      enabled: "true"
+#    client:
+#      enabled: "true"
+
+
+secrets:
+  ord:
+    cert: hlf--ord2-idcert
+    key: hlf--ord2-idkey
+    caCert: hlf--ord-ca-cert
+  genesis: hlf--genesis
+  adminCert: hlf--ord-admincert
+#  tls: hlf--ord1-tls
+#  tlsRootCert: hlf--ord-tlsrootcert
+#  tlsClientRootCerts: hlf--peer-tlsrootcert
+
+affinity:
+  podAntiAffinity:
+    preferredDuringSchedulingIgnoredDuringExecution:
+      - weight: 95
+        podAffinityTerm:
+          topologyKey: "kubernetes.io/hostname"
+          labelSelector:
+            matchLabels:
+              app: hlf-ord

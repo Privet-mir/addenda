@@ -1,0 +1,11 @@
+apiVersion: v1
+name: addenda
+version: 1.1.5
+appVersion: 1.4.0
+keywords:
+  - blockchain
+  - hyperledger
+  - fabric
+home: http://hyperledger-fabric-ca.readthedocs.io
+sources:
+  - https://github.com/hyperledger/fabric-ca

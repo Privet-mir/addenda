@@ -1,0 +1,39 @@
+image:
+  tag: 1.4.1
+
+persistence:
+  accessMode: ReadWriteOnce
+  size: 1Gi
+
+
+
+ord:
+  type: kafka
+  mspID: OrdererMSP
+#  tls:
+#    server:
+#      enabled: "true"
+#    client:
+#      enabled: "true"
+
+secrets:
+  ord:
+    cert: hlf--ord1-idcert
+    key: hlf--ord1-idkey
+    caCert: hlf--ord-ca-cert
+  genesis: hlf--genesis
+  adminCert: hlf--ord-admincert
+#  tls: hlf--ord1-tls
+#  tlsRootCert: hlf--ord-tlsrootcert
+#  tlsClientRootCerts: hlf--peer-tlsrootcert
+  
+
+affinity:
+  podAntiAffinity:
+    preferredDuringSchedulingIgnoredDuringExecution:
+      - weight: 95
+        podAffinityTerm:
+          topologyKey: "kubernetes.io/hostname"
+          labelSelector:
+            matchLabels:
+              app: orderer

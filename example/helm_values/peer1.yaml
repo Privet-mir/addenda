@@ -1,0 +1,41 @@
+image:
+  tag: 1.4.1
+
+persistence:
+  accessMode: ReadWriteOnce
+  size: 1Gi
+
+
+peer:
+  databaseType: CouchDB
+  couchdbInstance: addenda-couchdb1
+  mspID: Org1MSP
+#  tls:
+#    server:
+#      enabled: "true"
+#    client:
+#      enabled: "true"
+
+secrets:
+  peer:
+    cert: hlf--peer1-idcert
+    key: hlf--peer1-idkey
+    caCert: hlf--peer-ca-cert
+  channel: hlf--channel
+  adminCert: hlf--peer-admincert
+  adminKey: hlf--peer-adminkey
+#  tls: educhain--peer1-tls
+#  tlsRootCert: educhain--peer-tlsrootcert
+#  tlsClient: educhain--peer1-tls
+#  tlsClientRootCerts: educhain--ord-tlsrootcert
+
+
+affinity:
+  podAntiAffinity:
+    preferredDuringSchedulingIgnoredDuringExecution:
+      - weight: 95
+        podAffinityTerm:
+          topologyKey: "kubernetes.io/hostname"
+          labelSelector:
+            matchLabels:
+              app: addenda-peer

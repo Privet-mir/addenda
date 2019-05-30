@@ -1,0 +1,15 @@
+apiVersion: v1
+description: Hyperledger Fabric Peer chart
+name: addenda
+version: 1.2.5
+appVersion: 1.4.0
+keywords:
+  - blockchain
+  - hyperledger
+  - fabric
+home: http://hyperledger-fabric.readthedocs.io
+sources:
+  - https://github.com/hyperledger/fabric
+maintainers:
+  - name: h04x
+    email: mohammedr62@gmail.com

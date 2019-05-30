@@ -1,0 +1,49 @@
+image:
+  tag: 1.4.0
+
+
+ingress:
+  enabled: true
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    certmanager.k8s.io/cluster-issuer: "letsencrypt-production"
+  path: /
+  hosts:
+    # TODO: Change this to your Domain Name
+    - ca.add.groupup.co.in
+  tls:
+    - secretName: ca--tls
+      hosts:
+        # TODO: Change this to your Domain Name
+        - ca.add.groupup.co.in
+
+persistence:
+  accessMode: ReadWriteOnce
+  size: 1Gi
+
+caName: ca
+
+postgresql:
+  enabled: false
+
+config:
+  hlfToolsVersion: 1.3.0
+  csr:
+    names:
+      c: IN
+      st: MH
+      l:
+      o: "h04x"
+      ou: Blockchain
+  affiliations:
+    addenda: []
+
+affinity:
+  podAntiAffinity:
+    preferredDuringSchedulingIgnoredDuringExecution:
+      - weight: 95
+        podAffinityTerm:
+          topologyKey: "kubernetes.io/hostname"
+          labelSelector:
+            matchLabels:
+              app: addenda-ca
